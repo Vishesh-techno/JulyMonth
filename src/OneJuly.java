@@ -22,6 +22,15 @@ public class OneJuly {
         }
         return -1;
     }
+    public static boolean searchInRotatedSortedBoolean(int[] nums, int target){
+        int n = nums.length;
+        for(int i=0; i<n; i++){
+            if(nums[i] == target){
+                return true;
+            }
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         int a = 10;
@@ -30,5 +39,6 @@ public class OneJuly {
         int[] nums = {4, 5, 6, 7, 0, 1, 2};
         int target = 6;
         System.out.println("the index of target array " + target + " is: " + searchInRotatedSorted(nums, target));
+        System.out.println("the boolean of target array " + target + " is: " + searchInRotatedSortedBoolean(nums, target));
     }
 }
