@@ -9,6 +9,15 @@ public class TwoJuly {
         System.out.println("The given no. is Odd");
         }
     }
+//    Write a program to input principal, time, and rate (P, T, R) from the user and find Simple Interest.
+    public static int simpleIntrest(int principle, int rate, int time){
+//        Scanner sc = new Scanner(System.in);
+//        principle = sc.nextInt();
+//        rate = sc.nextInt();
+//        intrest = sc.nextInt();
+        int SI = (principle*rate*time)/100;
+        return SI;
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -19,6 +28,13 @@ public class TwoJuly {
 //        Take name as input and print a greeting message for that particular name.
         System.out.print("Enter the Name: ");
         String str = sc.nextLine();
-        System.out.print("Welcome back " + str);
+        System.out.println("Welcome back " + str);
+        System.out.print("Enter the principle amount: ");
+        int P = sc.nextInt();
+        System.out.print("Enter the rate amount: ");
+        int R = sc.nextInt();
+        System.out.print("Enter the time: ");
+        int T = sc.nextInt();
+        System.out.println(simpleIntrest(P,R,T));
     }
 }
