@@ -82,15 +82,35 @@ public class TwoJuly {
             b = c;
         }
     }
-    public static void palindrome(String str){
+
+    //    To find out whether the given String is Palindrome or not.
+    public static void palindrome(String str) {
         String reversed = "";
-        for (int i = str.length()-1; i >=0; i--) {
+        for (int i = str.length() - 1; i >= 0; i--) {
             reversed = reversed + str.charAt(i);
         }
-        if(str.equals(reversed)){
+        if (str.equals(reversed)) {
             System.out.println("Given String is Palindrome");
-        }else{
+        } else {
             System.out.println("Given String is not a Palindrome");
+        }
+    }
+
+    //    To find Armstrong Number between two given number.
+    public static void armstrongNo(int num) {
+        int original = num;
+        int n = String.valueOf(num).length();  // Count digits
+        int sum = 0;
+
+        while (num > 0) {
+            int digit = num % 10;
+            sum += (int) Math.pow(digit, n); // Raise digit to power of n
+            num /= 10;
+        }
+        if (sum == original) {
+            System.out.println(original + " is an Armstrong number.");
+        } else {
+            System.out.println(original + " is NOT an Armstrong number.");
         }
     }
 
@@ -101,22 +121,22 @@ public class TwoJuly {
         evenAndOdd(n);
         sc.nextLine();
 //        Take name as input and print a greeting message for that particular name.
-//        System.out.print("Enter the Name: ");
-//        String str = sc.nextLine();
-//        System.out.println("Welcome back " + str);
-//        System.out.print("Enter the principle amount: ");
-//        int P = sc.nextInt();
-//        System.out.print("Enter the rate amount: ");
-//        int R = sc.nextInt();
-//        System.out.print("Enter the time: ");
-//        int T = sc.nextInt();
-//        System.out.println(simpleIntrest(P,R,T));
-//        System.out.println("Enter the value of a: ");
-//        int a = sc.nextInt();
-//        System.out.println("Enter the value of b: ");
-//        int b = sc.nextInt();
-//        System.out.println("Result: " + calculator(a,b));
-//        System.out.println("Largest is: " + largest(a, b));
+        System.out.print("Enter the Name: ");
+        String str = sc.nextLine();
+        System.out.println("Welcome back " + str);
+        System.out.print("Enter the principle amount: ");
+        int P = sc.nextInt();
+        System.out.print("Enter the rate amount: ");
+        int R = sc.nextInt();
+        System.out.print("Enter the time: ");
+        int T = sc.nextInt();
+        System.out.println(simpleIntrest(P, R, T));
+        System.out.println("Enter the value of a: ");
+        int a = sc.nextInt();
+        System.out.println("Enter the value of b: ");
+        int b = sc.nextInt();
+        System.out.println("Result: " + calculator(a, b));
+        System.out.println("Largest is: " + largest(a, b));
         System.out.print("Enter the Rupees: ");
         double Rs = sc.nextDouble();
         System.out.println("The USD in " + Rs + " Rupees is: " + currencyConverter(Rs));
@@ -131,6 +151,9 @@ public class TwoJuly {
         System.out.print("Enter the String: ");
         String str = sc.nextLine();
         palindrome(str);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        armstrongNo(num);
 
     }
 }
