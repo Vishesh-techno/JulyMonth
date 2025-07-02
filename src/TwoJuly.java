@@ -54,6 +54,12 @@ public class TwoJuly {
         }
         return n;
     }
+//    Input currency in rupees and output in USD.
+    public static double currencyConverter(double Rs){
+        double USD = 85.75;
+        double result = Rs/USD;
+        return result;
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the no. ");
@@ -77,5 +83,9 @@ public class TwoJuly {
         int b = sc.nextInt();
         System.out.println("Result: " + calculator(a,b));
         System.out.println("Largest is: " + largest(a, b));
+        System.out.print("Enter the Rupees: " );
+        double Rs = sc.nextDouble();
+        System.out.println("The USD in "+Rs +" Rupees is: "+currencyConverter(Rs));
+
     }
 }
