@@ -1,4 +1,3 @@
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class TwoJuly {
@@ -13,12 +12,7 @@ public class TwoJuly {
 
     //    Write a program to input principal, time, and rate (P, T, R) from the user and find Simple Interest.
     public static int simpleIntrest(int principle, int rate, int time) {
-//        Scanner sc = new Scanner(System.in);
-//        principle = sc.nextInt();
-//        rate = sc.nextInt();
-//        intrest = sc.nextInt();
-        int SI = (principle * rate * time) / 100;
-        return SI;
+        return (principle * rate * time) / 100;
     }
 
     //    Take in two numbers and an operator (+, -, *, /) and calculate the value. (Use if conditions)
@@ -52,23 +46,18 @@ public class TwoJuly {
 
     //    Take 2 numbers as input and print the largest number.
     public static int largest(int n, int m) {
-        if (n < m) {
-            return m;
-        }
-        return n;
+        return Math.max(n, m);
     }
 
     //    Input currency in rupees and output in USD.
     public static double currencyConverter(double Rs) {
         double USD = 85.75;
-        double result = Rs / USD;
-        return result;
+        return Rs / USD;
     }
 
     public static double currencyConverterIndia(double Rs) {
         double USD = 85.75;
-        double result = Rs * USD;
-        return result;
+        return Rs * USD;
     }
 
     //    To calculate Fibonacci Series up to n numbers.
@@ -85,11 +74,11 @@ public class TwoJuly {
 
     //    To find out whether the given String is Palindrome or not.
     public static void palindrome(String str) {
-        String reversed = "";
+        StringBuilder reversed = new StringBuilder();
         for (int i = str.length() - 1; i >= 0; i--) {
-            reversed = reversed + str.charAt(i);
+            reversed.append(str.charAt(i));
         }
-        if (str.equals(reversed)) {
+        if (str.contentEquals(reversed)) {
             System.out.println("Given String is Palindrome");
         } else {
             System.out.println("Given String is not a Palindrome");
@@ -149,8 +138,8 @@ public class TwoJuly {
         System.out.println();
         sc.nextLine();
         System.out.print("Enter the String: ");
-        String str = sc.nextLine();
-        palindrome(str);
+        String str1 = sc.nextLine();
+        palindrome(str1);
         System.out.print("Enter a number: ");
         int num = sc.nextInt();
         armstrongNo(num);
