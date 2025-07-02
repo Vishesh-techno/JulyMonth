@@ -60,6 +60,22 @@ public class TwoJuly {
         double result = Rs/USD;
         return result;
     }
+    public static double currencyConverterIndia(double Rs){
+        double USD = 85.75;
+        double result = Rs*USD;
+        return result;
+    }
+//    To calculate Fibonacci Series up to n numbers.
+public static void fibonacciSeries(int n) {
+    int a = 0, b = 1;
+    System.out.print("Fibonacci Series is: " + a + " " + b + " ");
+    for (int i = 2; i < n; i++) {
+        int c = a + b;
+        System.out.print(c + " ");
+        a = b;
+        b = c;
+    }
+}
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter the no. ");
@@ -67,25 +83,31 @@ public class TwoJuly {
         evenAndOdd(n);
         sc.nextLine();
 //        Take name as input and print a greeting message for that particular name.
-        System.out.print("Enter the Name: ");
-        String str = sc.nextLine();
-        System.out.println("Welcome back " + str);
-        System.out.print("Enter the principle amount: ");
-        int P = sc.nextInt();
-        System.out.print("Enter the rate amount: ");
-        int R = sc.nextInt();
-        System.out.print("Enter the time: ");
-        int T = sc.nextInt();
-        System.out.println(simpleIntrest(P,R,T));
-        System.out.println("Enter the value of a: ");
-        int a = sc.nextInt();
-        System.out.println("Enter the value of b: ");
-        int b = sc.nextInt();
-        System.out.println("Result: " + calculator(a,b));
-        System.out.println("Largest is: " + largest(a, b));
+//        System.out.print("Enter the Name: ");
+//        String str = sc.nextLine();
+//        System.out.println("Welcome back " + str);
+//        System.out.print("Enter the principle amount: ");
+//        int P = sc.nextInt();
+//        System.out.print("Enter the rate amount: ");
+//        int R = sc.nextInt();
+//        System.out.print("Enter the time: ");
+//        int T = sc.nextInt();
+//        System.out.println(simpleIntrest(P,R,T));
+//        System.out.println("Enter the value of a: ");
+//        int a = sc.nextInt();
+//        System.out.println("Enter the value of b: ");
+//        int b = sc.nextInt();
+//        System.out.println("Result: " + calculator(a,b));
+//        System.out.println("Largest is: " + largest(a, b));
         System.out.print("Enter the Rupees: " );
         double Rs = sc.nextDouble();
         System.out.println("The USD in "+Rs +" Rupees is: "+currencyConverter(Rs));
+        System.out.print("Enter the USD: " );
+        double Rs1 = sc.nextDouble();
+        System.out.println("The USD in "+Rs1 +" Rupees is: "+currencyConverterIndia(Rs1));
+        System.out.println("Enter the no. of terms for Fibonacci Series: ");
+        int n1 = sc.nextInt();
+        fibonacciSeries(n1);
 
     }
 }
