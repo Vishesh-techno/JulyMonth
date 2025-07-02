@@ -43,9 +43,16 @@ public class TwoJuly {
                 }
                 break;
             default:
-                System.out.println("Invalid Operator: ");
+                System.out.println("Invalid Operator");
         }
         return result;
+    }
+//    Take 2 numbers as input and print the largest number.
+    public static int largest(int n, int m){
+        if(n<m){
+            return m;
+        }
+        return n;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -69,5 +76,6 @@ public class TwoJuly {
         System.out.println("Enter the value of b: ");
         int b = sc.nextInt();
         System.out.println("Result: " + calculator(a,b));
+        System.out.println("Largest is: " + largest(a, b));
     }
 }
