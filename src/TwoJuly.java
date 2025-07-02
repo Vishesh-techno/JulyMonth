@@ -14,8 +14,20 @@ public class TwoJuly {
         }
         return nums[start];
     }
+    public static int findPeakElement(int[] nums) {
+        int max = Integer.MIN_VALUE;
+        int index = 0;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]>max){
+                max = nums[i];
+                index = i;
+            }
+        }
+        return index;
+    }
     public static void main(String[] args) {
         int[] nums = {3,4,5,1,2};
         System.out.println("The index of Minimum is: "+findMin(nums));
+        System.out.println("The index of peak element in array is: " + findPeakElement(nums));
     }
 }
