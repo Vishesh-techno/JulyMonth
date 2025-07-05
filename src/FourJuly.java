@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FourJuly {
@@ -12,6 +13,14 @@ public class FourJuly {
             }
         }
         return result.toString();
+    }
+//    Shuffle String
+    public static String shuffleString(String s, int[] indices){
+        char[] res = new char[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            res[indices[i]] = s.charAt(i);
+        }
+        return new String(res);
     }
     public static void main(String[] args) {
 //        String str = "Vishesh Soni";
@@ -28,6 +37,10 @@ public class FourJuly {
         System.out.print("Enter the IP address: ");
         String str = sc.nextLine();
         System.out.println(ipv4Address(str));
+        String s = "visheshSoni";
+        int[] indices =  {2,3,1,0,4,5,6,7,8,9,10};
+        System.out.println(shuffleString(s, indices));
+
 
 
     }
