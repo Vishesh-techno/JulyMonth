@@ -35,12 +35,28 @@ public class SixJuly {
         }
         return ans;
     }
-
+    public static String freqAlphabet(String s){
+        StringBuilder sb = new StringBuilder();
+        int i = s.length()-1;
+        while(i>=0){
+            if(s.charAt(i) == '#'){
+                int num = Integer.parseInt(s.substring(i-2,i));
+                sb.append((char)('a' + num-1));
+                i = i-3;
+            }else{
+                int num = s.charAt(i) - '0';
+                sb.append((char)('a' + num - 1));
+                i--;
+            }
+        }
+        return sb.reverse().toString();
+    }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the String: ");
         String s = sc.next();
         System.out.println(vowelsInHalfAreLikes(s));
         System.out.println(halvesAreAlike(s));
+        System.out.println(freqAlphabet("22#919#8519#8"));
     }
 }
