@@ -41,5 +41,7 @@ public class SevenJuly {
         System.out.println(reverseWords(str));
         String str1 = "UDUDUDUDUDDLRLRRRLLRRRL";
         System.out.println(jugdeCircle(str1));
+        System.out.println(701/26);
+        System.out.println('a' + 25);
     }
 }
