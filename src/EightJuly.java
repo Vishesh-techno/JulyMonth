@@ -31,6 +31,9 @@ public class EightJuly {
 
         return true;
     }
+    public static int strStr(String haystack, String needle) {
+        return haystack.indexOf(needle);
+    }
 
     public static void main(String[] args) {
         String input = "A man, a plan, a canal, Panama";
@@ -44,5 +47,6 @@ public class EightJuly {
         } else {
             System.out.println("It's not a palindrome.");
         }
+        System.out.println(strStr("sadbutsad", "sad"));
     }
 }
