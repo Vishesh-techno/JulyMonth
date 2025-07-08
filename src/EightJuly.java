@@ -1,3 +1,4 @@
+
 public class EightJuly {
     public static boolean validPalindrome(String s) {
         String s1 = s.replaceAll("[\\s,]", "").toLowerCase();  // Remove spaces and commas
@@ -58,6 +59,21 @@ public class EightJuly {
         return true;
     }
 
+    public static String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) return "";
+
+        for (int i = 0; i < strs[0].length(); i++) {
+            char c = strs[0].charAt(i);
+
+            for (int j = 1; j < strs.length; j++) {
+                if (i >= strs[j].length() || strs[j].charAt(i) != c) {
+                    return strs[0].substring(0, i);
+                }
+            }
+        }
+        return strs[0];
+    }
+
     public static void main(String[] args) {
         String input = "A man, a plan, a canal, Panama";
         if (validPalindrome(input)) {
@@ -71,12 +87,14 @@ public class EightJuly {
             System.out.println("It's not a palindrome.");
         }
         System.out.println(strStr("sadbutsad", "sad"));
-        String str = "abbaceabba";
+        String str = "deeee";
         System.out.println(validPalindromeII(str));
         if (validPalindromeII(str)) {
             System.out.println("It's a palindrome.");
         } else {
             System.out.println("It's not a palindrome.");
         }
+        String[] str2 = {"flower","flow","flight"};
+        System.out.println(longestCommonPrefix(str2));
     }
 }
