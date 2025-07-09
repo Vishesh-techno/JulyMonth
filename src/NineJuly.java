@@ -46,6 +46,39 @@ public class NineJuly {
     public static boolean hasConsecutiveOnesmostOptimal(String s) {
        return !s.contains("01");
     }
+    public static String mergeAlternately(String word1, String word2) {
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<word1.length()||i<word2.length(); i++){
+            if(i<word1.length()){
+                sb.append(word1.charAt(i));
+            }
+            if(i<word2.length()){
+                sb.append(word2.charAt(i));
+            }
+        }
+        return sb.toString();
+    }
+    public static String mergeAlternatelyOptimal(String word1, String word2) {
+        char[] ch1 = word1.toCharArray();
+        char[] ch2 = word2.toCharArray();
+        StringBuilder sb = new StringBuilder();
+        int i=0, j=0;
+        while(i<ch1.length && j<ch2.length){
+            sb.append(ch1[i]);
+            sb.append(ch2[j]);
+            i++;
+            j++;
+        }
+        while(i<ch1.length){
+            sb.append(ch1[i]);
+            i++;
+        }
+        while(j<ch2.length){
+            sb.append(ch1[j]);
+            j++;
+        }
+        return sb.toString();
+    }
 
     public static void main(String[] args) {
         String str = "ababaabababacab";
@@ -55,5 +88,8 @@ public class NineJuly {
         System.out.println(hasConsecutiveOnes("10"));
         System.out.println(hasConsecutiveOnesOptimal("10"));
         System.out.println(hasConsecutiveOnesmostOptimal("1001"));
+        System.out.println(mergeAlternately("abc", "abc"));
+        System.out.println(mergeAlternatelyOptimal("abc", "abc"));
+
     }
 }
