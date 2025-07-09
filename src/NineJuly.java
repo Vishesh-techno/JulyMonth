@@ -35,6 +35,17 @@ public class NineJuly {
         }
         return true;
     }
+    public static boolean hasConsecutiveOnesOptimal(String s) {
+        for(int i=1;i<s.length();i++){
+            if(s.charAt(i-1)=='0' && s.charAt(i)=='1'){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean hasConsecutiveOnesmostOptimal(String s) {
+       return !s.contains("01");
+    }
 
     public static void main(String[] args) {
         String str = "ababaabababacab";
@@ -42,6 +53,7 @@ public class NineJuly {
         System.out.println(maxRepeating(str, word));
         System.out.println(maxRepeatingOptimal(str, word));
         System.out.println(hasConsecutiveOnes("10"));
-        System.out.println();
+        System.out.println(hasConsecutiveOnesOptimal("10"));
+        System.out.println(hasConsecutiveOnesmostOptimal("1001"));
     }
 }
