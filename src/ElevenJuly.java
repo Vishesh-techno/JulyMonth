@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ElevenJuly {
     // Om namah Shivay
     public static boolean canReach(String s, int minJump, int maxJump){
@@ -31,6 +33,21 @@ public class ElevenJuly {
         }
         return false;
     }
+    public static int removeDuplicates(int[] nums) {
+        int n = nums.length;
+        if (n == 0) {
+            return 0;
+        }
+        int k = 1;
+        for (int i=1; i<n; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+        return k;
+    }
+
 
     public static boolean isPalindrome(String s) {
         int l = 0, r = s.length() - 1;
@@ -42,6 +59,9 @@ public class ElevenJuly {
     }
     public static void main(String[] args) {
         System.out.println(canReach("011010", 2, 3));
-
+        System.out.println(checkPalindromeFormation("abcdef", "abcdef"));
+        int[] array = {0,0,1,1,1,2,2,3,3,};
+        System.out.println(Arrays.toString(array));
+        System.out.println(removeDuplicates(array));
     }
 }
