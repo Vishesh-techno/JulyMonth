@@ -57,11 +57,27 @@ public class ElevenJuly {
         }
         return l >= r;
     }
+    public static int maxProfitInStock(int[] nums){
+//        best time to  buy and sell stock
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i]<minPrice){
+                minPrice = nums[i];
+            }
+            if(nums[i]-minPrice>maxProfit){
+                maxProfit = nums[i] - minPrice;
+            }
+        }
+        return maxProfit;
+    }
     public static void main(String[] args) {
         System.out.println(canReach("011010", 2, 3));
         System.out.println(checkPalindromeFormation("abcdef", "abcdef"));
         int[] array = {0,0,1,1,1,2,2,3,3,};
+        int[] nums = {4,1,5,7,5,-3,85,0,7};
         System.out.println(Arrays.toString(array));
         System.out.println(removeDuplicates(array));
+        System.out.println(maxProfitInStock(nums));
     }
 }
