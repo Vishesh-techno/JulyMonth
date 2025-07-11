@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class TenJuly {
     public static String reversePrefix(String word, char ch){
         int index = word.indexOf(ch);
