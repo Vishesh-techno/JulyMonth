@@ -35,7 +35,6 @@ public class TwelveJuly {
         }
     }
     public static boolean containsDuplicate(int[] nums) {
-
         for(int i=0; i<nums.length-1; i++){
             for(int j=i+1; j<nums.length; j++){
                 if(nums[i] == nums[j]){
@@ -45,6 +44,18 @@ public class TwelveJuly {
         }
         return false;
     }
+
+    public static boolean containsDuplicateOptimal(int[] nums) {
+        for(int i=0; i<nums.length-1; i++){
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[i] == nums[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
 
     public static void main(String[] args) {
@@ -59,7 +70,11 @@ public class TwelveJuly {
             System.out.print(num + " ");
         }
         System.out.println("]");
-        System.out.println(containsDuplicate(nums));
+        if(containsDuplicate(nums)){
+            System.out.println("Duplicate is found");
+        }else{
+            System.out.println("Duplicate is not found");
+        }
 
     }
 }
