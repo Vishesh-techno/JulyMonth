@@ -20,12 +20,13 @@ public class TwelveJuly {
     }
 
     public static void rotateArray(int[] nums, int k) {
-        revNum(nums, 0, nums.length-1);
-        revNum(nums, 0 , k-1);
-        revNum(nums, k , nums.length-1);
+        revNum(nums, 0, nums.length - 1);
+        revNum(nums, 0, k - 1);
+        revNum(nums, k, nums.length - 1);
     }
-    public static void revNum(int[] nums, int start , int end){
-        while(start<=end){
+
+    public static void revNum(int[] nums, int start, int end) {
+        while (start <= end) {
             int temp = nums[start];
             nums[start] = nums[end];
             nums[end] = temp;
@@ -33,21 +34,32 @@ public class TwelveJuly {
             end--;
         }
     }
+    public static boolean containsDuplicate(int[] nums) {
+
+        for(int i=0; i<nums.length-1; i++){
+            for(int j=i+1; j<nums.length; j++){
+                if(nums[i] == nums[j]){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 
     public static void main(String[] args) {
         String s1 = "My Name is Vishesh Soni";
         String s2 = "My Father Name is Mukesh Soni";
         System.out.println(areSentenceSimilar(s1, s2));
-        int[] nums = {1,2,3,4,5,6,7};
+        int[] nums = {1, 2, 3, 4, 5, 6, 7};
         int k = 4;
-        rotateArray(nums , k);
-//        Arrays.toString(nums);
+        rotateArray(nums, k);
         System.out.print("[");
-        for(int num : nums){
+        for (int num : nums) {
             System.out.print(num + " ");
         }
-        System.out.print("]");
+        System.out.println("]");
+        System.out.println(containsDuplicate(nums));
 
     }
 }
