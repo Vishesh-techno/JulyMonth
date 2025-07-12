@@ -49,10 +49,10 @@ public class TwelveJuly {
        Arrays.sort(nums);
        for(int i=0; i<nums.length-1; i++){
            if(nums[i]==nums[i+1]){
-               return false;
+               return true;
            }
        }
-       return true;
+       return false;
     }
 
 
@@ -62,6 +62,7 @@ public class TwelveJuly {
         String s2 = "My Father Name is Mukesh Soni";
         System.out.println(areSentenceSimilar(s1, s2));
         int[] nums = {1, 2, 3, 4, 5, 6, 7};
+        int[] nums1 = {1, 2, 3, 1, 5, 6, 7};
         int k = 4;
         rotateArray(nums, k);
         System.out.print("[");
@@ -69,16 +70,17 @@ public class TwelveJuly {
             System.out.print(num + " ");
         }
         System.out.println("]");
-        if(containsDuplicate(nums)){
+        if(containsDuplicate(nums1)){
             System.out.println("Duplicate is found");
         }else{
             System.out.println("Duplicate is not found");
         }
-        if(!containsDuplicateOptimal(nums)){
+        if(containsDuplicateOptimal(nums1)){
             System.out.println("Duplicate is found");
         }else{
             System.out.println("Duplicate is not found");
         }
+        System.out.println(containsDuplicateOptimal(nums1));
 
     }
 }
