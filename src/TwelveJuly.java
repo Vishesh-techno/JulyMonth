@@ -18,8 +18,8 @@ public class TwelveJuly {
     }
 
     public static void main(String[] args) {
-        String s1 = "my name is vishesh soni";
-        String s2 = "my father name is Mukesh soni";
+        String s1 = "My Name is Vishesh Soni";
+        String s2 = "My Father Name is Mukesh Soni";
         System.out.println(areSentenceSimilar(s1, s2));
     }
 }
