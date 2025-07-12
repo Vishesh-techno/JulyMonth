@@ -46,14 +46,13 @@ public class TwelveJuly {
     }
 
     public static boolean containsDuplicateOptimal(int[] nums) {
-        for(int i=0; i<nums.length-1; i++){
-            for(int j=i+1; j<nums.length; j++){
-                if(nums[i] == nums[j]){
-                    return true;
-                }
-            }
-        }
-        return false;
+       Arrays.sort(nums);
+       for(int i=0; i<nums.length-1; i++){
+           if(nums[i]==nums[i+1]){
+               return false;
+           }
+       }
+       return true;
     }
 
 
@@ -71,6 +70,11 @@ public class TwelveJuly {
         }
         System.out.println("]");
         if(containsDuplicate(nums)){
+            System.out.println("Duplicate is found");
+        }else{
+            System.out.println("Duplicate is not found");
+        }
+        if(!containsDuplicateOptimal(nums)){
             System.out.println("Duplicate is found");
         }else{
             System.out.println("Duplicate is not found");
