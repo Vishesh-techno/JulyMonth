@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TwelveJuly {
     public static boolean areSentenceSimilar(String sentence1, String sentence2) {
@@ -34,10 +36,11 @@ public class TwelveJuly {
             end--;
         }
     }
+
     public static boolean containsDuplicate(int[] nums) {
-        for(int i=0; i<nums.length-1; i++){
-            for(int j=i+1; j<nums.length; j++){
-                if(nums[i] == nums[j]){
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] == nums[j]) {
                     return true;
                 }
             }
@@ -45,16 +48,26 @@ public class TwelveJuly {
         return false;
     }
 
-    public static boolean containsDuplicateOptimal(int[] nums) {
-       Arrays.sort(nums);
-       for(int i=0; i<nums.length-1; i++){
-           if(nums[i]==nums[i+1]){
-               return true;
-           }
-       }
-       return false;
+    public static boolean containsDuplicateBetter(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == nums[i + 1]) {
+                return true;
+            }
+        }
+        return false;
     }
 
+    public static boolean containsDuplicateOptimal(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int num : nums) {
+            if (s.contains(num)) {
+                return true;
+            }
+            s.add(num);
+        }
+        return false;
+    }
 
 
     public static void main(String[] args) {
@@ -70,14 +83,19 @@ public class TwelveJuly {
             System.out.print(num + " ");
         }
         System.out.println("]");
-        if(containsDuplicate(nums1)){
+        if (containsDuplicate(nums1)) {
             System.out.println("Duplicate is found");
-        }else{
+        } else {
             System.out.println("Duplicate is not found");
         }
-        if(containsDuplicateOptimal(nums1)){
+        if (containsDuplicateBetter(nums1)) {
             System.out.println("Duplicate is found");
-        }else{
+        } else {
+            System.out.println("Duplicate is not found");
+        }
+        if (containsDuplicateOptimal(nums1)) {
+            System.out.println("Duplicate is found");
+        } else {
             System.out.println("Duplicate is not found");
         }
         System.out.println(containsDuplicateOptimal(nums1));
