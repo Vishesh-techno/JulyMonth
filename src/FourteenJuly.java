@@ -1,6 +1,4 @@
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class FourteenJuly {
     public static int[] intersection(int[] nums1, int[] nums2){
@@ -22,9 +20,34 @@ public class FourteenJuly {
         }
         return Arrays.copyOfRange(res, 0, k);
     }
+    public static int[] intersectionII(int[] nums1, int[] nums2){
+//        if(nums1.length > nums2.length){
+//            return intersectionII(nums2, nums1);
+//        }
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+        int[] res1 = new int[nums2.length];
+        int k = 0;
+        int i = 0, j=0;
+        while(i< nums1.length&&j<nums2.length){
+            if(nums1[i]==nums2[j]){
+                res1[k] = nums1[i];
+                k++;
+                i++;
+                j++;
+            } else if (nums1[i]>nums2[j]) {
+                j++;
+            }else{
+                i++;
+            }
+        }
+        return Arrays.copyOfRange(res1, 0, k);
+    }
     public static void main(String[] args) {
         int[] nums1 = {4,2,4,5,4};
         int[] nums2 = {4,5,4,5,4};
         System.out.println(Arrays.toString(intersection(nums1, nums2)));
+        System.out.println(Arrays.toString(intersectionII(nums1, nums2)));
+        System.out.println();
     }
 }
