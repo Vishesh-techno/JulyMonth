@@ -15,7 +15,7 @@ public class FifteenJuly {
         res[0]=1;
         return res;
     }
-    public static void moveZeros(int[] nums){
+    public static void moveZerosBetter(int[] nums){
         int j=0;
         for(int num: nums){
             if(num!=0){
@@ -28,10 +28,24 @@ public class FifteenJuly {
             j++;
         }
     }
+    public static void moveZeros(int[] nums){
+        int j=0;
+        for(int i=0; i<nums.length; i++){
+            if(nums[i]!=0){
+                int temp = nums[i];
+                nums[i] = 0;
+                nums[j] = temp;
+                j++;
+            }
+        }
+    }
     public static void main(String[] args) {
         int[] nums = {9,9,9,9,0,0,9,9,9,8};
+        int[] nums1 = {9,9,9,9,0,0,9,9,9,8};
         System.out.println(Arrays.toString(plusOne(nums)));
-        moveZeros(nums);
+        moveZerosBetter(nums);
         System.out.println(Arrays.toString(nums));
+        moveZeros(nums1);
+        System.out.println(Arrays.toString(nums1));
     }
 }
