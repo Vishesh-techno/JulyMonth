@@ -15,8 +15,23 @@ public class FifteenJuly {
         res[0]=1;
         return res;
     }
+    public static void moveZeros(int[] nums){
+        int j=0;
+        for(int num: nums){
+            if(num!=0){
+                nums[j] = num;
+                j++;
+            }
+        }
+        while(j<nums.length){
+            nums[j]=0;
+            j++;
+        }
+    }
     public static void main(String[] args) {
-        int[] nums = {9,9,9,9,9,9,9,9,9,9};
+        int[] nums = {9,9,9,9,0,0,9,9,9,8};
         System.out.println(Arrays.toString(plusOne(nums)));
+        moveZeros(nums);
+        System.out.println(Arrays.toString(nums));
     }
 }
