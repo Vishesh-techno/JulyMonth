@@ -1,4 +1,99 @@
-package PACKAGE_NAME;
-
 public class LinkedList {
+    public static class Node{
+        int data;
+        Node next;
+        public Node(int data){
+            this.data = data;
+            this.next = null;
+        }
+    }
+    public static Node Head;
+    public static Node Tail;
+    public static int Size;
+    public void addFirst(int data){
+//        Step 1: Create a new Node
+         Node newNode = new Node(data);
+         Size++;
+        if(Head == null){
+            Head = Tail = newNode;
+            return;
+        }
+//         Step 2: new Node = next;
+         newNode.next = Head;
+//         Step 3: head = new Node;
+         Head = newNode;
+    }
+    public void addLast(int data){
+//        Step 1: Create a new Node
+        Node newNode = new Node(data);
+        Size++;
+        if(Head == null){
+            Head = Tail = newNode;
+            return;
+        }
+//         Step 2: new Node = next;
+       Tail.next = newNode;
+//         Step 3: head = new Node;
+        Tail = newNode;
+    }
+    public void add(int idx, int data){
+        if(idx==0){
+            addFirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        Size++;
+        Node temp = Head;
+        int i = 0;
+
+        while(i<idx-1){
+            temp = temp.next;
+            i++;
+        }
+
+        newNode.next = temp.next;
+        temp.next = newNode;
+    }
+    public void print(){//   TC-O(n)
+        if(Head==null){
+            System.out.println("ll is empty");
+        }
+        Node temp = Head;
+        while(temp!=null){
+            System.out.print(temp.data+"-->");
+            temp = temp.next;
+        }
+        System.out.println("null");
+
+    }
+    public int removeFirst(){
+        if(Size == 0){
+            System.out.println("ll is Empty");
+            return 0;
+        }
+        if(Size == 1){
+            int val = Head.data;
+            Head = Tail = null;
+            Size = 0;
+            return val;
+        }
+        int val = Head.data;
+        Head = Head.next;
+        Size--;
+        return val;
+    }
+    public static void main(String[] args) {
+        LinkedList ll = new LinkedList();
+        ll.addFirst(2);//        head: 2
+        ll.addFirst(1);//        head: 1
+        ll.addLast(3);//         Tail: 3
+        ll.addLast(4);//         Tail: 4
+        ll.print();
+        ll.add(2, 9);
+        ll.print();
+        System.out.println(Size);
+        ll.removeFirst();
+        ll.print();
+        System.out.println(Size);
+    }
 }
