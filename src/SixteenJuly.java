@@ -42,11 +42,21 @@ public class SixteenJuly {
         }
         return null;
     }
+    public static int[] shuffleArray(int[] nums, int n){
+        int[] ans = new int[2*n];
+        for(int i=0; i<n; i++){
+            ans[2*i]=nums[i];
+            ans[2*i+1]= nums[i+n];
+        }
+        return ans;
+    }
     public static void main(String[] args) {
-        int[] nums = {3,2,4};
+        int[] nums = {3,2,4,6};
         int tar = 6;
+        int n = 2;
         System.out.println(Arrays.toString(twoSum(nums, tar)));
         System.out.println(Arrays.toString(twoSumBetter(nums, tar)));
         System.out.println(Arrays.toString(twoSumOptimal(nums, tar)));
+        System.out.println(Arrays.toString(shuffleArray(nums, n)));
     }
 }
