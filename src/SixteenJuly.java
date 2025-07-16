@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SixteenJuly {
     public static int[] twoSum(int[] nums, int target){
@@ -10,9 +12,27 @@ public class SixteenJuly {
         }
         return res;
     }
+    public static int[] twoSumBetter(int[] nums, int target){
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int i = 0; i<nums.length; i++){
+            map.put(nums[i], i);
+        }
+        for(int i=0; i<nums.length; i++){
+            int lookUpNumber = target - nums[i];
+            if(map.containsKey(lookUpNumber) && map.get(lookUpNumber)!=i){
+                return new int[]{
+                        map.get(lookUpNumber), i
+                };
+            }
+        }
+        return new int[]{-1,-1};
+    }
+
+
     public static void main(String[] args) {
         int[] nums = {3,2,4};
         int tar = 6;
         System.out.println(Arrays.toString(twoSum(nums, tar)));
+        System.out.println(Arrays.toString(twoSumBetter(nums, tar)));
     }
 }
