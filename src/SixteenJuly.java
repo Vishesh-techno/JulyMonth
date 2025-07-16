@@ -1,4 +1,3 @@
-import javax.naming.PartialResultException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,6 +49,17 @@ public class SixteenJuly {
         }
         return ans;
     }
+    public static void reverseString(String[] s){
+        int start = 0;
+        int end = s.length-1;
+        while(start<end){
+            String temp = s[start];
+            s[start]=s[end];
+            s[end]=temp;
+            start++;
+            end--;
+        }
+    }
     public static void main(String[] args) {
         int[] nums = {3,2,4,6};
         int tar = 6;
@@ -58,5 +68,8 @@ public class SixteenJuly {
         System.out.println(Arrays.toString(twoSumBetter(nums, tar)));
         System.out.println(Arrays.toString(twoSumOptimal(nums, tar)));
         System.out.println(Arrays.toString(shuffleArray(nums, n)));
+        String[] str = {"H","a","n","n","a","h"};
+        reverseString(str);
+        System.out.println(Arrays.toString(str));
     }
 }
