@@ -60,6 +60,24 @@ public class SixteenJuly {
             end--;
         }
     }
+    public static int reverseNumber(int x){
+        int rev = 0;
+        while(x!=0){
+            int digit = x % 10;
+            if(rev > Integer.MAX_VALUE/10){
+                return 0;
+            }
+            if(rev == Integer.MAX_VALUE/10 && digit > 7){
+                return 0;
+            }
+            if(rev<Integer.MIN_VALUE/10){
+                return 0;
+            }
+            rev = rev*10 + digit;
+            x/=10;
+        }
+        return rev;
+    }
     public static void main(String[] args) {
         int[] nums = {3,2,4,6};
         int tar = 6;
@@ -71,5 +89,7 @@ public class SixteenJuly {
         String[] str = {"H","a","n","n","a","h"};
         reverseString(str);
         System.out.println(Arrays.toString(str));
+        System.out.println(reverseNumber(123));
+
     }
 }
