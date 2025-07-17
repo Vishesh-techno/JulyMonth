@@ -142,6 +142,19 @@ public class LinkedList {
         return helper(Head, key);
     }
 
+    public void reverseLL() {
+        Node prev = null;
+        Node curr = Head;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        Head = prev;
+    }
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);//        head: 2
@@ -152,15 +165,18 @@ public class LinkedList {
         ll.add(2, 3);
         ll.print();
         System.out.println(Size);
-        ll.removeFirst();
+//        ll.removeFirst();
         ll.print();
         System.out.println(Size);
-        ll.removeLast();
+//        ll.removeLast();
         ll.print();
         System.out.println(Size);
         ll.searchIterative(3);
         System.out.println("The key is found at: " + ll.searchIterative(3));
         System.out.println("The key is found at: " + ll.recSearch(3));
         System.out.println("The key is found at: " + ll.recSearch(10));
+        ll.reverseLL();
+        System.out.print("The reverse String is: ");
+        ll.print();
     }
 }
