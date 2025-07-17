@@ -102,6 +102,18 @@ public class LinkedList {
         Size--;
         return val;
     }
+    public int searchIterative(int key){
+        Node temp = Head;
+        int i = 0;
+        while(temp!=null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         ll.addFirst(2);//        head: 2
@@ -118,5 +130,7 @@ public class LinkedList {
         ll.removeLast();
         ll.print();
         System.out.println(Size);
+        ll.searchIterative(3);
+        System.out.println("The key is found at: "+ll.searchIterative(3));
     }
 }
