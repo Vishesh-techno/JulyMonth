@@ -59,8 +59,23 @@ public class SeventeenJuly {
 
         return true;
     }
+    public static boolean isPalindrome(String str){
+        String s = str.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        int i = 0;
+        int j = s.length()-1;
+        while(i<=j){
+            if(s.charAt(i)!=s.charAt(j)){
+                return false;
+            }
+            i++;
+            j--;
+        }
+        return true;
+    }
     public static void main(String[] args) {
         System.out.println(firstUniqueChar("aabbccd"));
         System.out.println(firstUniqueChar("aabbccddeffgg"));
+        System.out.println("A man, a plan, a canal: Panama");
+        System.out.println(isPalindrome("A man, a plan, a canal: Panama"));
     }
 }
