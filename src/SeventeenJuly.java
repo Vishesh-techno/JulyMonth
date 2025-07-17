@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +16,28 @@ public class SeventeenJuly {
             }
         }
         return -1;
+    }
+    public static boolean isAnagram(String s, String t) {
+        if (t.length() != s.length()) {
+            return false;
+        }
+
+//        Map<Character, Integer> map1 = new HashMap<>();
+
+        int[] count = new int[26];
+        for (int i=0; i<s.length(); i++) {
+           count[s.charAt(i)-'a']++;
+        }
+        for (int i=0; i<t.length(); i++) {
+            count[t.charAt(i)-'a']--;
+        }
+        for (int i : count) {
+            if (i != 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
     public static void main(String[] args) {
         System.out.println(firstUniqueChar("aabbccd"));
