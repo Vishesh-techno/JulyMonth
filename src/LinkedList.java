@@ -154,6 +154,34 @@ public class LinkedList {
         }
         Head = prev;
     }
+    public void deleteNthNodeFromEnd(int n){
+        int sz = 0;
+        Node temp = Head;
+        while(temp != null){
+            sz++;
+            temp = temp.next;
+        }
+
+        if(n>sz){
+            System.out.println("index not found or out of bound index");
+            return;
+        }
+
+        if(n == sz){
+            Head = Head.next;
+            return;
+        }
+
+        int i = 0;
+        int j = sz-n;
+        Node prev = Head;
+        while(i<j){
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -178,5 +206,10 @@ public class LinkedList {
         ll.reverseLL();
         System.out.print("The reverse String is: ");
         ll.print();
+        ll.deleteNthNodeFromEnd(3);
+        ll.deleteNthNodeFromEnd(10);
+        ll.deleteNthNodeFromEnd(4);
+        ll.print();
+        System.out.println(Size);
     }
 }
