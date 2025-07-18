@@ -29,12 +29,35 @@ public class LinkedList2 {
        System.out.println("null");
    }
 
+    public void addFirst(int data){
+        Node newNode = new Node(data);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+   public void addlast(int data){
+       Node newNode = new Node(data);
+       if(head == null){
+           head = newNode;
+           return;
+       }
+       Node temp = head;
+       while(temp.next != null){
+           temp = temp.next;
+       }
+       temp.next = newNode;
+   }
     public static void main(String[] args) {
         LinkedList2 ll = new LinkedList2();
+        ll.addFirst(0);
         ll.add(1);
         ll.add(2);
         ll.add(3);
         ll.add(4);
+        ll.addlast(5);
         ll.print();
     }
 }
