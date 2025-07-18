@@ -182,34 +182,84 @@ public class LinkedList {
         prev.next = prev.next.next;
         return;
     }
+    public Node findMidNode(Node Head){
+        Node slow = Head;
+        Node fast = Head;
+        while(fast !=null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+//    check LikedList is a palindrome
+    public boolean isPalindrome(){
+        if(Head == null || Head.next == null){
+            return true;
+        }
+
+//      find midNode
+        Node midNode = findMidNode(Head);
+
+//        reverse second half
+        Node prev = null;
+        Node curr = midNode;
+        Node next;
+        while(curr!=null){
+         next = curr.next;
+         curr.next = prev;
+         prev = curr;
+         curr = next;
+        }
+
+//        check left half and right half
+
+        Node right = prev;
+        Node left = Head;
+
+        while(right != null){
+            if(left.data != right.data){
+                return false;
+            }
+            right = right.next;
+            left = left.next;
+        }
+        return true;
+    }
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(2);//        head: 2
-        ll.addFirst(1);//        head: 1
-        ll.addLast(4);//         Tail: 3
-        ll.addLast(5);//         Tail: 4
+//        ll.addFirst(2);//        head: 2
+//        ll.addFirst(1);//        head: 1
+//        ll.addLast(4);//         Tail: 3
+//        ll.addLast(5);//         Tail: 4
+//        ll.print();
+//        ll.add(2, 3);
+//        ll.print();
+//        System.out.println(Size);
+////        ll.removeFirst();
+//        ll.print();
+//        System.out.println(Size);
+////        ll.removeLast();
+//        ll.print();
+//        System.out.println(Size);
+//        ll.searchIterative(3);
+//        System.out.println("The key is found at: " + ll.searchIterative(3));
+//        System.out.println("The key is found at: " + ll.recSearch(3));
+//        System.out.println("The key is found at: " + ll.recSearch(10));
+//        ll.reverseLL();
+//        System.out.print("The reverse String is: ");
+//        ll.print();
+//        ll.deleteNthNodeFromEnd(3);
+//        ll.deleteNthNodeFromEnd(10);
+//        ll.deleteNthNodeFromEnd(4);
+//        ll.print();
+//        System.out.println(Size);
+
+        ll.addFirst(2);
+        ll.addFirst(1);
+        ll.addLast(2);
+        ll.addLast(1);
         ll.print();
-        ll.add(2, 3);
-        ll.print();
-        System.out.println(Size);
-//        ll.removeFirst();
-        ll.print();
-        System.out.println(Size);
-//        ll.removeLast();
-        ll.print();
-        System.out.println(Size);
-        ll.searchIterative(3);
-        System.out.println("The key is found at: " + ll.searchIterative(3));
-        System.out.println("The key is found at: " + ll.recSearch(3));
-        System.out.println("The key is found at: " + ll.recSearch(10));
-        ll.reverseLL();
-        System.out.print("The reverse String is: ");
-        ll.print();
-        ll.deleteNthNodeFromEnd(3);
-        ll.deleteNthNodeFromEnd(10);
-        ll.deleteNthNodeFromEnd(4);
-        ll.print();
-        System.out.println(Size);
+        System.out.println(ll.isPalindrome());
     }
 }
