@@ -1,5 +1,5 @@
-public class LinkedList4 {
-    public class Node {
+public class NineteenJuly {
+    public static class Node {
         int data;
         Node next;
 
@@ -109,7 +109,7 @@ public class LinkedList4 {
     }
 
     public static void main(String[] args) {
-        LinkedList4 ll = new LinkedList4();
+        NineteenJuly ll = new NineteenJuly();
         ll.add(1);
         ll.add(2);
         ll.add(5);
