@@ -116,11 +116,11 @@ public class NineteenJuly {
         ll.add(3);
         ll.add(4);
         ll.print();
-//        Node ndelete = ll.getNodeByValue(5);
-//        if (ndelete != null && ndelete.next != null) {
-//            ll.deleteNode(ndelete);
-//        }
-//        ll.print();
+        Node ndelete = ll.getNodeByValue(5);
+        if (ndelete != null && ndelete.next != null) {
+            ll.deleteNode(ndelete);
+        }
+        ll.print();
         ll.removeNthNodeFromEnd(4);
         ll.print();
         ll.reverse();
