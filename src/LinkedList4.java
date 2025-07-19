@@ -37,17 +37,17 @@ public class LinkedList4 {
 
     public void deleteNode(Node node) {
 //        if head is given
-        if(head == null || node == null) return;
+        if (head == null || node == null) return;
 
-        if(head == node){
+        if (head == node) {
             head = head.next;
             return;
         }
-       Node temp = head;
-       while(temp.next != node){
-           temp = temp.next;
-       }
-       temp.next = temp.next.next;
+        Node temp = head;
+        while (temp.next != node) {
+            temp = temp.next;
+        }
+        temp.next = temp.next.next;
 
 //       if head is not given
 
@@ -63,35 +63,49 @@ public class LinkedList4 {
         }
         System.out.println("null");
     }
-    public void removeNthNodeFromEnd(int n){
+
+    public void removeNthNodeFromEnd(int n) {
         int sz = 0;
         Node temp = head;
-        while(temp != null){
+        while (temp != null) {
             sz++;
             temp = temp.next;
         }
 
-        if(n>sz){
+        if (n > sz) {
             return;
         }
 
-        if(head == null || n <= 0){
+        if (head == null || n <= 0) {
             return;
         }
 
-        if(n == sz){
+        if (n == sz) {
             head = head.next;
             return;
         }
 
-        int i=0;
+        int i = 0;
         int j = sz - n;
         Node forw = head.next;
-        while(i < j-1){
+        while (i < j - 1) {
             forw = forw.next;
             i++;
         }
         forw.next = forw.next.next;
+    }
+
+    public void reverse() {
+        Node prev = null;
+        Node curr = head;
+        Node next;
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
     }
 
     public static void main(String[] args) {
@@ -108,6 +122,8 @@ public class LinkedList4 {
 //        }
 //        ll.print();
         ll.removeNthNodeFromEnd(4);
+        ll.print();
+        ll.reverse();
         ll.print();
 
     }
