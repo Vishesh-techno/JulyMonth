@@ -1,5 +1,3 @@
-import javax.swing.text.StyledEditorKit;
-
 public class LinkedList4 {
     public class Node {
         int data;
@@ -65,7 +63,7 @@ public class LinkedList4 {
         }
         System.out.println("null");
     }
-    public Node removeNthNodeFromEnd(int n){
+    public void removeNthNodeFromEnd(int n){
         int sz = 0;
         Node temp = head;
         while(temp != null){
@@ -74,16 +72,16 @@ public class LinkedList4 {
         }
 
         if(n>sz){
-            return head;
+            return;
         }
 
         if(head == null || n <= 0){
-            return head;
+            return;
         }
 
         if(n == sz){
             head = head.next;
-            return head;
+            return;
         }
 
         int i=0;
@@ -94,7 +92,6 @@ public class LinkedList4 {
             i++;
         }
         forw.next = forw.next.next;
-        return head;
     }
 
     public static void main(String[] args) {
