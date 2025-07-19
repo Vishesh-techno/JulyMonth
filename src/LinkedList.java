@@ -157,6 +157,7 @@ public class LinkedList {
     public void deleteNthNodeFromEnd(int n){
         int sz = 0;
         Node temp = Head;
+//        calculate size
         while(temp != null){
             sz++;
             temp = temp.next;

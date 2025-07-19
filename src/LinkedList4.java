@@ -65,6 +65,37 @@ public class LinkedList4 {
         }
         System.out.println("null");
     }
+    public Node removeNthNodeFromEnd(int n){
+        int sz = 0;
+        Node temp = head;
+        while(temp != null){
+            sz++;
+            temp = temp.next;
+        }
+
+        if(n>sz){
+            return head;
+        }
+
+        if(head == null || n <= 0){
+            return head;
+        }
+
+        if(n == sz){
+            head = head.next;
+            return head;
+        }
+
+        int i=0;
+        int j = sz - n;
+        Node forw = head.next;
+        while(i < j-1){
+            forw = forw.next;
+            i++;
+        }
+        forw.next = forw.next.next;
+        return head;
+    }
 
     public static void main(String[] args) {
         LinkedList4 ll = new LinkedList4();
@@ -74,10 +105,12 @@ public class LinkedList4 {
         ll.add(3);
         ll.add(4);
         ll.print();
-        Node ndelete = ll.getNodeByValue(5);
-        if (ndelete != null && ndelete.next != null) {
-            ll.deleteNode(ndelete);
-        }
+//        Node ndelete = ll.getNodeByValue(5);
+//        if (ndelete != null && ndelete.next != null) {
+//            ll.deleteNode(ndelete);
+//        }
+//        ll.print();
+        ll.removeNthNodeFromEnd(4);
         ll.print();
 
     }
