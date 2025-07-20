@@ -1,5 +1,3 @@
-import java.util.List;
-
 public class TwentyJuly {
     public static class ListNode{
         int data;
@@ -55,6 +53,15 @@ public class TwentyJuly {
         }
         System.out.println("null");
     }
+    public ListNode findMidNode(ListNode head){
+        ListNode slow = head;
+        ListNode fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
 
     public static void main(String[] args) {
         TwentyJuly ll = new TwentyJuly();
@@ -72,7 +79,7 @@ public class TwentyJuly {
         ListNode mergedList = mergeTwoList(ll.head, ll1.head);
         System.out.print("Merged List: ");
         print(mergedList);
-
-
+        ListNode mid = ll.findMidNode(mergedList);
+        System.out.println("Middle Node of Merged List is: " + mid.data);
     }
 }
