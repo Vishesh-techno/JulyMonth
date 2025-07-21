@@ -13,7 +13,6 @@ public class TwentyOneJuly {
     }
 
     public ListNode head;
-    public ListNode tail;
 
     public void add(int data) {
         ListNode temp = head;
@@ -87,7 +86,7 @@ public class TwentyOneJuly {
         return false;
     }
 
-    public boolean hasCycleoptimal(ListNode list){
+    public boolean hasCycleOptimal(ListNode head){
         ListNode slow = head;
         ListNode fast = head;
 
@@ -116,7 +115,7 @@ public class TwentyOneJuly {
         ll.print();
         System.out.println(ll.isPalindrome(ll.head));
         System.out.println(ll.hasCycle(ll.head));
-        System.out.println(ll.hasCycleoptimal(ll.head));
+        System.out.println(ll.hasCycleOptimal(ll.head));
 
     }
 }
