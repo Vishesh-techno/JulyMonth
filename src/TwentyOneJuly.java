@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class TwentyOneJuly {
     public static class ListNode {
         int data;
@@ -10,6 +13,7 @@ public class TwentyOneJuly {
     }
 
     public ListNode head;
+    public ListNode tail;
 
     public void add(int data) {
         ListNode temp = head;
@@ -69,6 +73,35 @@ public class TwentyOneJuly {
         return true;
     }
 
+    public boolean hasCycle(ListNode list){
+        Set<ListNode> set = new HashSet<>();
+        ListNode curr = list;
+
+        while(curr != null){
+            if(set.contains(curr)){
+                return true;
+            }
+            set.add(curr);
+            curr = curr.next;
+        }
+        return false;
+    }
+
+    public boolean hasCycleoptimal(ListNode list){
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         TwentyOneJuly ll = new TwentyOneJuly();
         ll.add(1);
@@ -77,8 +110,13 @@ public class TwentyOneJuly {
         ll.add(3);
         ll.add(2);
         ll.add(4);
+        ll.add(3);
+        ll.add(2);
+        ll.add(4);
         ll.print();
         System.out.println(ll.isPalindrome(ll.head));
+        System.out.println(ll.hasCycle(ll.head));
+        System.out.println(ll.hasCycleoptimal(ll.head));
 
     }
 }
