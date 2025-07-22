@@ -33,7 +33,7 @@ public class TwentyTwoJuly {
         System.out.println("null");
     }
 
-    public static ListNode removeNode(ListNode head, int val) {
+    public void removeNode(ListNode head, int val) {
         while (head != null && head.data == val) {
             head = head.next;
         }
@@ -45,7 +45,17 @@ public class TwentyTwoJuly {
                 temp = temp.next;
             }
         }
-        return head;
+    }
+
+    public void removeDuplicates(ListNode head) {
+        ListNode temp = head;
+        while (temp != null && temp.next != null) {
+            if (temp.data == temp.next.data) {
+                temp.next = temp.next.next;
+            } else {
+                temp = temp.next;
+            }
+        }
     }
 
     public static void main(String[] args) {
@@ -53,13 +63,21 @@ public class TwentyTwoJuly {
         ll.add(0);
         ll.add(1);
         ll.add(2);
-        ll.add(6);
+        ll.add(2);
         ll.add(3);
-        ll.add(6);
+        ll.add(4);
         ll.add(4);
         ll.print();
-        head = removeNode(head, 6);
+        ll.removeNode(head, 4);
         ll.print();
+        System.out.println("Original:");
+        ll.print();
+
+       ll.removeDuplicates(head);
+
+        System.out.println("After Removing Duplicates:");
+        ll.print();
+
     }
 
 }
