@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class TwentyTwoJuly {
     public static class ListNode {
         int data;
@@ -77,6 +79,14 @@ public class TwentyTwoJuly {
 
         System.out.println("After Removing Duplicates:");
         ll.print();
+
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(0);
+        list.add(1);
+        list.add(2);
+        System.out.println(list);
+        list.removeFirst();
+        System.out.println(list);
 
     }
 
