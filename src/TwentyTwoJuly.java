@@ -60,6 +60,21 @@ public class TwentyTwoJuly {
         }
     }
 
+    public static boolean isPrime(int num) {
+        if (num <= 1) {
+            return true;
+        }
+//        for(int i=2; i<num; i++){
+        for (int i = 2; i < Math.sqrt(num); i++) {
+            if (num % i == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         TwentyTwoJuly ll = new TwentyTwoJuly();
         ll.add(0);
@@ -75,7 +90,7 @@ public class TwentyTwoJuly {
         System.out.println("Original:");
         ll.print();
 
-       ll.removeDuplicates(head);
+        ll.removeDuplicates(head);
 
         System.out.println("After Removing Duplicates:");
         ll.print();
@@ -87,6 +102,7 @@ public class TwentyTwoJuly {
         System.out.println(list);
         list.removeFirst();
         System.out.println(list);
+        System.out.println(isPrime(45));
 
     }
 
