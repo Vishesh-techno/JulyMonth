@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class TwentyThreeJuly {
     public static class ListNode {
         int data;
@@ -100,6 +103,17 @@ public class TwentyThreeJuly {
         return slow;
     }
 
+    public static int findDuplicate(int[] nums) {
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (set.contains(num)) {
+                return num;
+            }
+            set.add(num);
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
 
         TwentyThreeJuly ll = new TwentyThreeJuly();
@@ -117,6 +131,8 @@ public class TwentyThreeJuly {
         deleteDuplicates(head);
         ll.print();
         System.out.println(detectCycle(head));
+        int[] nums = {1, 2, 1, 2, 5, 4};
+        System.out.println(findDuplicate(nums));
 
     }
 }
