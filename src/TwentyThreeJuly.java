@@ -1,5 +1,3 @@
-import java.util.LinkedList;
-
 public class TwentyThreeJuly {
     public static class ListNode {
         int data;
@@ -13,9 +11,9 @@ public class TwentyThreeJuly {
 
     public static ListNode head;
 
-    public static ListNode reverseBetween(ListNode head, int left, int right) {
+    public static void reverseBetween(ListNode head, int left, int right) {
         if (head == null || left == right) {
-            return head;
+            return;
         }
         ListNode dummy = new ListNode(0);
         dummy.next = head;
@@ -33,7 +31,6 @@ public class TwentyThreeJuly {
             forw.next = prev.next;
             prev.next = forw;
         }
-        return dummy.next;
     }
 
     public void add(int data) {
@@ -58,9 +55,9 @@ public class TwentyThreeJuly {
         System.out.println("null");
     }
 
-    public static ListNode deleteDuplicates(ListNode head) {
+    public static void deleteDuplicates(ListNode head) {
         if (head == null && head.next == null) {
-            return head;
+            return;
         }
 
         ListNode dummy = new ListNode(0);
@@ -78,7 +75,6 @@ public class TwentyThreeJuly {
             }
             head = head.next;
         }
-        return dummy.next;
     }
 
     public static void main(String[] args) {
