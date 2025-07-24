@@ -104,6 +104,5 @@ public class TwentyFourJuly {
             temp = temp.next;
         }
         System.out.println("null");
-
     }
 }
