@@ -10,6 +10,7 @@ public class TwentyFiveJuly {
     }
 
     public ListNode head;
+    public ListNode tail;
 
     public ListNode reverse(ListNode head) {
         ListNode prev = null;
@@ -76,6 +77,38 @@ public class TwentyFiveJuly {
         System.out.println("null");
     }
 
+    public ListNode rotateList(ListNode head, int k) {
+        if (head == null || head.next == null || k == 0) {
+            return head;
+        }
+        ListNode tail = null;
+        ListNode curr = head;
+        int size = 0;
+        while (curr != null) {
+            tail = curr;
+            curr = curr.next;
+            size++;
+        }
+
+        int newK = k % size;
+        if (newK == 0) {
+            return head;
+        }
+        int diff = size - newK;
+
+        int i = 0;
+        curr = head;
+        while (i < diff - 1) {
+            curr = curr.next;
+            i++;
+        }
+
+        ListNode newHead = curr.next;
+        curr.next = null;
+        tail.next = head;
+        return newHead;
+    }
+
     public static void main(String[] args) {
         TwentyFiveJuly ll = new TwentyFiveJuly();
         TwentyFiveJuly ll1 = new TwentyFiveJuly();
@@ -93,7 +126,10 @@ public class TwentyFiveJuly {
 
         TwentyFiveJuly resultList = new TwentyFiveJuly();
         resultList.head = resultList.addTwoNumbers(ll.head, ll1.head);
-        resultList.print(); // 2==>5==>7==>8==>null (1234 + 134 = 1378)
+        resultList.print();
+
+        ll.head = ll.rotateList(ll.head, 15);
+        ll.print();
 
     }
 }
