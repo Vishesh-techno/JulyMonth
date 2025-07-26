@@ -86,6 +86,23 @@ public class TwentySixJuly {
         return currA;
     }
 
+    public ListNode evenAndOddList(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode odd = head, even = head.next;
+        ListNode evenHead = head.next;
+
+        while (even != null && even.next != null) {
+            odd.next = even.next;
+            odd = odd.next;
+            even.next = odd.next;
+            even = even.next;
+        }
+        odd.next = evenHead;
+        return head;
+    }
+
     public static void main(String[] args) {
         TwentySixJuly ll = new TwentySixJuly();
         ll.add(0);
@@ -145,5 +162,7 @@ public class TwentySixJuly {
             System.out.println("No intersection found.");
         }
 
+        ll.evenAndOddList(ll.head);
+        ll.print();
     }
 }
