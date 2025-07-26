@@ -86,9 +86,9 @@ public class TwentySixJuly {
         return currA;
     }
 
-    public ListNode evenAndOddList(ListNode head) {
+    public void evenAndOddList(ListNode head) {
         if (head == null) {
-            return null;
+            return;
         }
         ListNode odd = head, even = head.next;
         ListNode evenHead = head.next;
@@ -100,7 +100,6 @@ public class TwentySixJuly {
             even = even.next;
         }
         odd.next = evenHead;
-        return head;
     }
 
     public static void main(String[] args) {
