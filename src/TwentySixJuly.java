@@ -51,7 +51,7 @@ public class TwentySixJuly {
         System.out.println("null");
     }
 
-    public ListNode intersectionNodeOptimal(ListNode headA, ListNode headB) {
+    public ListNode intersectionNodeBetter(ListNode headA, ListNode headB) {
         Set<ListNode> set = new HashSet<>();
         while (headA != null) {
             set.add(headA);
@@ -65,6 +65,25 @@ public class TwentySixJuly {
             headB = headB.next;
         }
         return null;
+    }
+
+    public ListNode intersectionNodeOptimal(ListNode headA, ListNode headB) {
+        ListNode currA = headA;
+        ListNode currB = headB;
+        while (currA != currB) {
+            if (currA == null) {
+                currA = headB;
+            } else {
+                currA = currA.next;
+            }
+
+            if (currB == null) {
+                currB = headA;
+            } else {
+                currB = currB.next;
+            }
+        }
+        return currA;
     }
 
     public static void main(String[] args) {
@@ -107,6 +126,13 @@ public class TwentySixJuly {
 
         ListNode result = ll.intersectionNode(ll.head, ll1.head);
         if (result != null) {
+            System.out.println("Intersection at node with data: " + result.data);
+        } else {
+            System.out.println("No intersection found.");
+        }
+
+        ListNode result2 = ll.intersectionNodeBetter(ll.head, ll1.head);
+        if (result2 != null) {
             System.out.println("Intersection at node with data: " + result.data);
         } else {
             System.out.println("No intersection found.");
