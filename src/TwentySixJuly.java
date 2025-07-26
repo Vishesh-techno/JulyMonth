@@ -1,20 +1,25 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class TwentySixJuly {
-    public static class ListNode{
+    public static class ListNode {
         int data;
         ListNode next;
-        public ListNode(int data){
+
+        public ListNode(int data) {
             this.data = data;
             this.next = null;
         }
     }
+
     public ListNode head;
 
-    public ListNode intersectionNode(ListNode headA, ListNode headB){
+    public ListNode intersectionNode(ListNode headA, ListNode headB) {
         ListNode tempA = headA;
-        while(tempA != null){
+        while (tempA != null) {
             ListNode tempB = headB;
-            while(tempB != null){
-                if(tempA == tempB){
+            while (tempB != null) {
+                if (tempA == tempB) {
                     return tempA;
                 }
                 tempB = tempB.next;
@@ -23,25 +28,43 @@ public class TwentySixJuly {
         }
         return null;
     }
-    public void add(int data){
+
+    public void add(int data) {
         ListNode newNode = new ListNode(data);
-        if(head == null){
+        if (head == null) {
             head = newNode;
             return;
         }
         ListNode temp = head;
-        while(temp.next != null){
+        while (temp.next != null) {
             temp = temp.next;
         }
         temp.next = newNode;
     }
-    public void print(){
+
+    public void print() {
         ListNode temp = head;
-        while(temp != null){
+        while (temp != null) {
             System.out.print(temp.data + "==>>");
             temp = temp.next;
         }
         System.out.println("null");
+    }
+
+    public ListNode intersectionNodeOptimal(ListNode headA, ListNode headB) {
+        Set<ListNode> set = new HashSet<>();
+        while (headA != null) {
+            set.add(headA);
+            headA = headA.next;
+        }
+        while (headB != null) {
+            if (set.contains(headB)) {
+                return headB;
+            }
+            set.add(headB);
+            headB = headB.next;
+        }
+        return null;
     }
 
     public static void main(String[] args) {
@@ -67,13 +90,13 @@ public class TwentySixJuly {
         ll2.add(8);
 
         ListNode temp = ll.head;
-        while(temp.next != null){
+        while (temp.next != null) {
             temp = temp.next;
         }
         temp.next = ll2.head;
 
         temp = ll1.head;
-        while(temp.next != null){
+        while (temp.next != null) {
             temp = temp.next;
         }
         temp.next = ll2.head;
@@ -84,6 +107,13 @@ public class TwentySixJuly {
 
         ListNode result = ll.intersectionNode(ll.head, ll1.head);
         if (result != null) {
+            System.out.println("Intersection at node with data: " + result.data);
+        } else {
+            System.out.println("No intersection found.");
+        }
+
+        ListNode result1 = ll.intersectionNodeOptimal(ll.head, ll1.head);
+        if (result1 != null) {
             System.out.println("Intersection at node with data: " + result.data);
         } else {
             System.out.println("No intersection found.");
