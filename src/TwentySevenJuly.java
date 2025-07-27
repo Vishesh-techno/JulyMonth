@@ -24,6 +24,16 @@ public class TwentySevenJuly {
         }
         return -1;
     }
+    public void addAtHead(int val){
+        ListNode newNode = new ListNode(val);
+        if(head == null){
+            head = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+
     public static void main(String[] args) {
 
     }
