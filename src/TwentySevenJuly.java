@@ -1,3 +1,4 @@
+
 public class TwentySevenJuly {
     static class ListNode {
         int val;
@@ -44,7 +45,11 @@ public class TwentySevenJuly {
             head = tail = newNode;
             return;
         }
-        tail.next = newNode;
+        ListNode temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
         tail = newNode;
     }
 
@@ -52,8 +57,8 @@ public class TwentySevenJuly {
         if (index == 0) {
             ListNode newNode = new ListNode(val);
             newNode.next = head;
-            if (head == null) {
-                head = newNode;
+            if (tail == null) {
+                tail = newNode;
                 return;
             }
         }
@@ -93,12 +98,33 @@ public class TwentySevenJuly {
             return;
         }
         if (temp.next.next == null) {
-            tail = temp.next;
+            tail = temp;
         }
         temp.next = temp.next.next;
     }
 
-    public static void main(String[] args) {
+    public void print() {
+        ListNode temp = head;
+        while (temp != null) {
+            System.out.print(temp.val + "==>>");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
 
+    public static void main(String[] args) {
+        TwentySevenJuly ll = new TwentySevenJuly();
+        ll.addAtHead(1);      // List: 0
+        ll.addAtHead(0);
+        ll.addAtLast(4);      // List: 1 -> 0 -> 4
+        ll.addAtLast(5);      // List: 1 -> 0 -> 4 -> 5
+        ll.addAtIndex(2, 2);  // List: 1 -> 0 -> 4 -> 2 -> 5
+        ll.addAtIndex(3, 3);  // List: 1 -> 0 -> 4 -> 2 -> 3 -> 5
+        ll.addAtIndex(6, 8);// List: 1 -> 0
+        ll.print();
+        ll.get(6);
+        ll.print();
+        ll.deleteAtIndex(6);
+        ll.print();
     }
 }
