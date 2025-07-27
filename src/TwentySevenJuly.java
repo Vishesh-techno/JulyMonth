@@ -57,6 +57,7 @@ public class TwentySevenJuly {
         if (index == 0) {
             ListNode newNode = new ListNode(val);
             newNode.next = head;
+            head = newNode;
             if (tail == null) {
                 tail = newNode;
                 return;
@@ -122,7 +123,7 @@ public class TwentySevenJuly {
         ll.addAtIndex(3, 3);  // List: 1 -> 0 -> 4 -> 2 -> 3 -> 5
         ll.addAtIndex(6, 8);// List: 1 -> 0
         ll.print();
-        ll.get(6);
+        System.out.println("Value at index 6: " + ll.get(6));
         ll.print();
         ll.deleteAtIndex(6);
         ll.print();
