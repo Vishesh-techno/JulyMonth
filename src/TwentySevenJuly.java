@@ -34,6 +34,17 @@ public class TwentySevenJuly {
         head = newNode;
     }
 
+    public void addAtLast(int val){
+        ListNode newNode = new ListNode(val);
+        if(head == null){
+            head = tail = newNode;
+            return;
+        }
+        tail.next = newNode;
+        tail = newNode;
+    }
+
+
     public static void main(String[] args) {
 
     }
