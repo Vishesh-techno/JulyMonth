@@ -1,4 +1,3 @@
-
 public class TwentyEightJuly {
     public static class ListNode {
         int data;
@@ -63,8 +62,7 @@ public class TwentyEightJuly {
 
     public ListNode deleteMiddle(ListNode head) {
         if (head.next == null) {
-            head = null;
-            return head;
+            return null;
         }
         ListNode prev = new ListNode(0);
         prev.next = head;
