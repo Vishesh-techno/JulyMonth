@@ -61,6 +61,26 @@ public class TwentyEightJuly {
         System.out.println("null");
     }
 
+    public ListNode deleteMiddle(ListNode head) {
+        if (head.next == null) {
+            head = null;
+            return head;
+        }
+        ListNode prev = new ListNode(0);
+        prev.next = head;
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            prev = prev.next;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        prev.next = slow.next;
+        return head;
+    }
+
+
     public static void main(String[] args) {
         TwentyEightJuly ll = new TwentyEightJuly();
         ll.add(10);
@@ -80,6 +100,9 @@ public class TwentyEightJuly {
         ll1.print();
 
         ll.head = ll.mergeInBetween(list1, 2, 4, list2);
+        ll.print();
+
+        ll.head = ll.deleteMiddle(ll.head);
         ll.print();
     }
 
