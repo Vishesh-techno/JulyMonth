@@ -1,61 +1,66 @@
 
 public class TwentyEightJuly {
-    public static class ListNode{
+    public static class ListNode {
         int data;
         ListNode next;
-        ListNode(int data){
+
+        ListNode(int data) {
             this.data = data;
             this.next = null;
         }
     }
+
     public ListNode head;
 
-    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2){
+    public ListNode mergeInBetween(ListNode list1, int a, int b, ListNode list2) {
         ListNode dummy = new ListNode(0);
         dummy.next = list1;
 
         ListNode temp = list1;
         int i = 0;
-        while(temp != null && i<a-1){
+        while (temp != null && i < a - 1) {
             temp = temp.next;
             i++;
         }
         ListNode temp1 = list1;
         int j = 0;
-        while(temp1 != null && j<=b){
+        while (temp1 != null && j <= b) {
             temp1 = temp1.next;
             j++;
         }
 
         temp.next = list2;
         ListNode l2 = list2;
-        while(l2.next != null){
+        while (l2.next != null) {
             l2 = l2.next;
         }
 
         l2.next = temp1;
         return dummy.next;
     }
-    public void add(int data){
+
+    public void add(int data) {
         ListNode newNode = new ListNode(data);
-        if(head == null){
+        if (head == null) {
             head = newNode;
             return;
         }
         ListNode temp = head;
-        while(temp.next != null){
+        while (temp.next != null) {
             temp = temp.next;
         }
         temp.next = newNode;
     }
-    public void print(){
+
+    public void print() {
         ListNode temp = head;
-        while(temp != null){
+        while (temp != null) {
             System.out.print(temp.data + "==>");
             temp = temp.next;
         }
         System.out.println("null");
     }
+
     public static void main(String[] args) {
         TwentyEightJuly ll = new TwentyEightJuly();
         ll.add(10);
