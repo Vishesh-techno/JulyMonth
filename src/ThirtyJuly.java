@@ -1,5 +1,7 @@
+import java.util.Arrays;
+
 public class ThirtyJuly {
-    public int[] plusOne(int[] digits) {
+    public static int[] plusOne(int[] digits) {
         int[] res = new int[digits.length + 1];
         res[0] = 1;
         for (int i = digits.length - 1; i >= 0; i--) {
@@ -13,7 +15,7 @@ public class ThirtyJuly {
         return res;
     }
 
-    public int maxSubArray(int[] nums) {
+    public static int maxSubArray(int[] nums) {
         int cs = 0;
         int ms = Integer.MIN_VALUE;
         int maxElement = Integer.MIN_VALUE;
@@ -33,7 +35,7 @@ public class ThirtyJuly {
         return ms;
     }
 
-    public int[] buildArray(int[] nums) {
+    public static  int[] buildArray(int[] nums) {
         int n = nums.length;
         int[] ans = new int[n];
         for (int i = 0; i < n; i++) {
@@ -43,6 +45,13 @@ public class ThirtyJuly {
     }
 
     public static void main(String[] args) {
+        int[] nums = {0,2,1,5,3,4};
+        int[] num = {-2,1,-3,4,-1,2,1,-5,4};
+
+        System.out.println(Arrays.toString(plusOne(nums)));
+        System.out.println(Arrays.toString(buildArray(nums)));
+        System.out.println(maxSubArray(nums));
+
 
     }
 }
