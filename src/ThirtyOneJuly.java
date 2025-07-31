@@ -33,8 +33,22 @@ public class ThirtyOneJuly {
         }
         return false;
     }
+    public static int arrangeCoins(int n) {
+        long sum=n;
+        if(n==1){
+            return 1;
+        }
+        for(int i=1;i<=n;i++){
+            sum-=i;
+            if(sum<0){
+                return i-1;
+            }
+        }
+        return n;
+    }
     public static void main(String[] args) {
         int[] nums = {2,7,11,15};
         int target = 9;
+        System.out.println();
     }
 }
