@@ -22,5 +22,3 @@ My consistent effort demonstrates my:
 Feel free to check out my GitHub repositories to see my DSA progress and growth over time. Let’s build something great together!
 
 
-
-July Month
